@@ -3,7 +3,10 @@ package com.musalasoft.drones.ports.output.dao.jpa.entity;
 import com.musalasoft.drones.commons.enums.Model;
 import com.musalasoft.drones.commons.enums.State;
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
@@ -29,7 +32,7 @@ import lombok.ToString;
 public class Drone implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, unique = true)
     private Integer id;
 
@@ -49,4 +52,7 @@ public class Drone implements Serializable {
     @Column(nullable = false)
     @Enumerated(EnumType.ORDINAL)
     private State state;
+
+    @OneToMany(mappedBy = "drone", cascade = {CascadeType.ALL})
+    private List<DroneMedication> medications;
 }

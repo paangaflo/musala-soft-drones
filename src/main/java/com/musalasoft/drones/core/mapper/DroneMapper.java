@@ -7,14 +7,16 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 
-@Mapper
+@Mapper(componentModel = "spring", uses = {MedicationItemMapper.class})
 public interface DroneMapper {
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "medications", source = "listMedicationItem")
     Drone dtoToEntity(DroneDTO droneDTO);
 
     @Mapping(source="id", target = "droneId")
+    @Mapping(source="medications", target = "listMedicationItem")
     DroneDTO entityToDto(Drone drone);
 
-    List<DroneDTO> listEntityToListDto(List<Drone> listDrone);
+    List<DroneDTO> toListDroneDto(List<Drone> listDrone);
 }

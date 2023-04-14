@@ -9,7 +9,8 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "musalasoft.general")
 public class GeneralProperties {
 
-    private String limitDrones;
+    private Integer limitDrones;
     private Integer defaultBatteryCapacity;
+    private Integer batteryLevelBelow;
 
 }

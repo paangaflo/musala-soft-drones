@@ -3,6 +3,7 @@ package com.musalasoft.drones.ports.input.rs.controller.mapper;
 import com.musalasoft.drones.core.dto.DroneDTO;
 import com.musalasoft.drones.ports.input.rs.controller.request.DroneRequest;
 import com.musalasoft.drones.ports.input.rs.controller.response.DroneResponse;
+import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -15,4 +16,6 @@ public interface IDroneMapper {
     DroneDTO droneRequestToDroneDTO(DroneRequest droneRequest);
 
     DroneResponse toDroneResponse(DroneDTO droneDTO);
+
+    List<DroneResponse> toListDroneResponse(List<DroneDTO> listDroneDTO);
 }

@@ -23,7 +23,7 @@ public class DroneRequest {
 
     @NotEmpty
     @Size(max = 100)
-    @Schema(description = "Serial number.", requiredMode = Schema.RequiredMode.REQUIRED, example = "ASDE-ER45-E345")
+    @Schema(description = "Serial number", requiredMode = Schema.RequiredMode.REQUIRED, example = "ASDE-ER45-E345")
     private String serialNumber;
 
     @NotNull

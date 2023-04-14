@@ -2,6 +2,7 @@ package com.musalasoft.drones.core.dto;
 
 import com.musalasoft.drones.commons.enums.Model;
 import com.musalasoft.drones.commons.enums.State;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,4 +24,5 @@ public class DroneDTO {
     private int weightLimit;
     private int batteryCapacity;
     private State state;
+    private List<MedicationItemDTO> listMedicationItem;
 }

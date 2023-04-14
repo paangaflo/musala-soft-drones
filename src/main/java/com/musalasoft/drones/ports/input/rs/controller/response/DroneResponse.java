@@ -2,7 +2,11 @@ package com.musalasoft.drones.ports.input.rs.controller.response;
 
 import com.musalasoft.drones.commons.enums.Model;
 import com.musalasoft.drones.commons.enums.State;
+import com.musalasoft.drones.ports.input.rs.controller.request.MedicationItemRequest;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
+import java.util.List;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
