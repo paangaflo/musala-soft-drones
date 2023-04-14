@@ -43,4 +43,11 @@ public interface IDroneService {
      * @return droneDTO {@link DroneDTO}
      */
     DroneDTO updateWithMedications(DroneDTO droneDTO);
+
+    /**
+     * Update the battery level of a drone
+     *
+     * @param droneDTO {@link DroneDTO} an object to start to perform of update a drone
+     */
+    void updateBatteryLevelDrone(DroneDTO droneDTO);
 }
