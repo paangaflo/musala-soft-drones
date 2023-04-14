@@ -28,7 +28,7 @@ public class DispatchServiceImpl implements IDispatchService {
     private final GeneralProperties generalProperties;
 
     @Override
-    public LoadDTO load(Integer droneId, List<Integer> listMedicationIds) {
+    public LoadDTO loadDrone(Integer droneId, List<Integer> listMedicationIds) {
 
         DroneDTO droneDTO = droneService.get(droneId).orElse(null);
 
@@ -99,5 +99,38 @@ public class DispatchServiceImpl implements IDispatchService {
             .drone(droneDTOSave)
             .medications(listMedicationDTO)
             .build();
+    }
+
+    @Override
+    public List<MedicationDTO> checkMedication(Integer droneId) {
+        DroneDTO droneDTO = droneService.get(droneId).orElse(null);
+
+        if (Objects.isNull(droneDTO)) {
+            throw new NotFoundException("Drone not found.");
+        }
+
+        List<Integer> listMedications = droneDTO.getListMedicationItem().stream().map(
+            medicationItemDTO -> medicationItemDTO.getMedicationId()
+        ).collect(Collectors.toList());
+
+        return medicationService.getFindAllById(listMedications);
+    }
+
+    @Override
+    public List<DroneDTO> availableDrone() {
+        return droneService.getAll().stream()
+            .filter(drone -> drone.getState().equals(State.IDLE))
+            .collect(Collectors.toList());
+    }
+
+    @Override
+    public Integer batteryLevelDrone(Integer droneId) {
+        DroneDTO droneDTO = droneService.get(droneId).orElse(null);
+
+        if (Objects.isNull(droneDTO)) {
+            throw new NotFoundException("Drone not found.");
+        }
+
+        return droneDTO.getBatteryCapacity();
     }
 }

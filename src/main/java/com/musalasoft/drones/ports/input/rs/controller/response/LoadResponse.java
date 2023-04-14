@@ -22,5 +22,4 @@ public class LoadResponse {
 
     @Schema(description = "Serial number", example = "MedicationResponse Object")
     private List<MedicationResponse> medications;
-
 }
