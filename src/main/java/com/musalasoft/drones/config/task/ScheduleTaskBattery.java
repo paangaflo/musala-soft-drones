@@ -10,8 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @RequiredArgsConstructor
@@ -24,13 +22,11 @@ public class ScheduleTaskBattery {
     private final IDroneService droneService;
 
     @Scheduled(fixedRateString  = "${musalasoft.scheduled-job-delay}")
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void scheduleCheckDronesBatteryLevelTask() {
         List<DroneDTO> listDroneDTO = droneService.getAll();
         logger.info("Drones Battery levels :: Execution Time - {}", dateTimeFormatter.format(LocalDateTime.now()) );
         for(DroneDTO droneDTO : listDroneDTO)
         {
-            droneService.updateBatteryLevelDrone(droneDTO);
             logger.info("Drone :: {}, Battery Level :: {}%", droneDTO.getDroneId(), droneDTO.getBatteryCapacity());
         }
     }
