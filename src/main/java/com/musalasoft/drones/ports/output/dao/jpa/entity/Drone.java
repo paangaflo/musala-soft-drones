@@ -40,7 +40,7 @@ public class Drone implements Serializable {
     private String serialNumber;
 
     @Column(nullable = false)
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private Model model;
 
     @Column(name = "weight_limit", nullable = false)
@@ -50,7 +50,7 @@ public class Drone implements Serializable {
     private Integer batteryCapacity;
 
     @Column(nullable = false)
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private State state;
 
     @OneToMany(mappedBy = "drone", cascade = {CascadeType.ALL})

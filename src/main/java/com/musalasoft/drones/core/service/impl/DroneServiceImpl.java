@@ -15,8 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional(readOnly = true)
 @RequiredArgsConstructor
+@Transactional
 public class DroneServiceImpl implements IDroneService {
 
     private final DroneRepository droneRepository;
@@ -61,14 +61,5 @@ public class DroneServiceImpl implements IDroneService {
         drone.setId(droneDTO.getDroneId());
         drone.getMedications().forEach(medication -> medication.setDrone(drone));
         return droneMapper.entityToDto(droneRepository.save(drone));
-    }
-
-    @Override
-    public void updateBatteryLevelDrone(DroneDTO droneDTO) {
-        Drone drone = droneMapper.dtoToEntity(droneDTO);
-        drone.setId(droneDTO.getDroneId());
-        Integer newBatteryLevel = Math.max(drone.getBatteryCapacity() - 1, 0);
-        drone.setBatteryCapacity(newBatteryLevel);
-        droneRepository.save(drone);
     }
 }

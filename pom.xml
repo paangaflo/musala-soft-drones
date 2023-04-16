@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.musalasoft</groupId>
 	<artifactId>drones</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>drones</name>
 	<description>Drones for deliveries</description>
 	<properties>
@@ -18,6 +18,11 @@
 		<!-- Dependencies versions -->
 		<mapstruct.version>1.4.2.Final</mapstruct.version>
 		<springdoc-openapi-ui.version>1.6.13</springdoc-openapi-ui.version>
+		<!-- liquibase -->
+		<liquibase.changeLogDirectory>${project.basedir}/liquibase/mysql</liquibase.changeLogDirectory>
+		<liquibase.changeLogFile>db-changelog.yaml</liquibase.changeLogFile>
+		<liquibase.propertyFile>${project.basedir}/liquibase/mysql/liquibase.properties</liquibase.propertyFile>
+		<liquibase.promptOnNonLocalDatabase>false</liquibase.promptOnNonLocalDatabase>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -42,12 +47,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
@@ -58,9 +57,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.30</version>
 		</dependency>
 
 		<dependency>
@@ -86,10 +85,32 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<!-- Test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<testResources>
+			<testResource>
+				<filtering>true</filtering>
+				<directory>${project.basedir}/src/test/resources</directory>
+			</testResource>
+		</testResources>
 		<plugins>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

@@ -1,0 +1,384 @@
+{
+	"info": {
+		"_postman_id": "64602c29-0fb8-4561-9c57-33220e2f1a2f",
+		"name": "Drones API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Drones",
+			"item": [
+				{
+					"name": "Create drone",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"serialNumber\": \"435gg56655\",\n\t\"model\":\"HEAVY_WEIGHT\",\n\t\"weightLimit\":25\n}"
+						},
+						"url": {
+							"raw": "http://localhost:6868/musala-soft/api/drones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6868",
+							"path": [
+								"musala-soft",
+								"api",
+								"drones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get drone",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:6868/musala-soft/api/drones/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6868",
+							"path": [
+								"musala-soft",
+								"api",
+								"drones",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All drones",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:6868/musala-soft/api/drones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6868",
+							"path": [
+								"musala-soft",
+								"api",
+								"drones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete drone",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:6868/musala-soft/api/drones/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6868",
+							"path": [
+								"musala-soft",
+								"api",
+								"drones",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Medications",
+			"item": [
+				{
+					"name": "Create medication",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Aspirina-cero\",\n\t\"weight\":10,\n\t\"code\":\"AS_45ER\",\n\t\"image\": \"https://www.somedomain.com/image.png\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:6868/musala-soft/api/medications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6868",
+							"path": [
+								"musala-soft",
+								"api",
+								"medications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get medication",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:6868/musala-soft/api/medications/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6868",
+							"path": [
+								"musala-soft",
+								"api",
+								"medications",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All medications",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:6868/musala-soft/api/medications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6868",
+							"path": [
+								"musala-soft",
+								"api",
+								"medications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete medication",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:6868/musala-soft/api/medications/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6868",
+							"path": [
+								"musala-soft",
+								"api",
+								"medications",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Dispatch",
+			"item": [
+				{
+					"name": "Loading a drone with medication items",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"medicationIds\": [1,2,3]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:6868/musala-soft/api/dispatch/drone/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6868",
+							"path": [
+								"musala-soft",
+								"api",
+								"dispatch",
+								"drone",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Checking loaded medication items for a given drone",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:6868/musala-soft/api/dispatch/drone/1/medication",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6868",
+							"path": [
+								"musala-soft",
+								"api",
+								"dispatch",
+								"drone",
+								"1",
+								"medication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Checking available drones for loading",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:6868/musala-soft/api/dispatch/drone/available",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6868",
+							"path": [
+								"musala-soft",
+								"api",
+								"dispatch",
+								"drone",
+								"available"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check drone battery level for a given drone",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:6868/musala-soft/api/dispatch/drone/1/battery",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6868",
+							"path": [
+								"musala-soft",
+								"api",
+								"dispatch",
+								"drone",
+								"1",
+								"battery"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
